@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "POC NFC MifareClassic 1k"

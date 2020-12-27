@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">POC NFC MifareClassic 1k</string>
+    <string name="txv_title_text">POC NFC</string>
+    <string name="edt_value_hint_text">Digite o valor</string>
+    <string name="btn_read_text">LER</string>
+    <string name="btn_write_text">ESCREVER</string>
+    <string name="btn_change_permissions_text">ALTERAR PERMISSAO</string>
+    <string name="edt_block_hint_text">Digite o bloco do cartão nfc</string>
+    <string name="radio_key_a_text">Chave A</string>
+    <string name="radio_key_b_text">Chave B</string>
+</resources>

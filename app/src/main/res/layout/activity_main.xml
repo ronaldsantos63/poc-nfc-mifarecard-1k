@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.ronaldsantos.pocnfcmifareclassic1k.views.main.viewmodel.MainActivityViewModel"/>
+        
+        <variable
+            name="mainViewModel"
+            type="MainActivityViewModel" />
+
+        <variable
+            name="presenter"
+            type="com.ronaldsantos.pocnfcmifareclassic1k.views.main.MainContract.Presenter" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.main.MainActivity">
+
+        <TextView
+            android:id="@+id/txv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/txv_title_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.467"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radio_key"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txv_title"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <RadioButton
+                android:id="@+id/radio_key_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_key_a_text"
+                android:checked="@={mainViewModel.mainVO.keyASelected}"/>
+
+            <RadioButton
+                android:id="@+id/radio_key_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_key_b_text"
+                android:checked="@={mainViewModel.mainVO.keyBSelected}"/>
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/edt_block"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:text="@={mainViewModel.mainVO.block}"
+            android:inputType="numberSigned"
+            android:hint="@string/edt_block_hint_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio_key" />
+
+        <EditText
+            android:id="@+id/edt_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:text="@={mainViewModel.mainVO.value}"
+            android:inputType="text"
+            android:hint="@string/edt_value_hint_text"
+            android:autofillHints=""
+            app:layout_constraintEnd_toEndOf="@id/edt_block"
+            app:layout_constraintStart_toStartOf="@id/edt_block"
+            app:layout_constraintTop_toBottomOf="@+id/edt_block" />
+
+        <Button
+            android:id="@+id/btn_read"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/btn_read_text"
+            android:textStyle="bold"
+            android:onClick="@{() -> presenter.onBtnReadClick(mainViewModel.mainVO)}"
+            app:layout_constraintEnd_toEndOf="@+id/edt_value"
+            app:layout_constraintStart_toStartOf="@+id/edt_value"
+            app:layout_constraintTop_toBottomOf="@+id/edt_value" />
+
+        <Button
+            android:id="@+id/btn_write"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/btn_write_text"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/btn_read"
+            app:layout_constraintStart_toStartOf="@+id/btn_read"
+            app:layout_constraintTop_toBottomOf="@+id/btn_read" />
+
+        <Button
+            android:id="@+id/btn_change_permissions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/btn_change_permissions_text"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/btn_write"
+            app:layout_constraintStart_toStartOf="@+id/btn_write"
+            app:layout_constraintTop_toBottomOf="@+id/btn_write" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
